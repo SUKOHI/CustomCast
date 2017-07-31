@@ -1,0 +1,19 @@
+{
+    "name": "sukohi/custom-cast",
+    "description": "A Laravel package for custom casts.",
+    "authors": [
+        {
+            "name": "Sukohi",
+            "email": "sukohi.capilano@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sukohi\\CustomCast\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
