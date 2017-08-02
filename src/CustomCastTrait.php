@@ -1,5 +1,7 @@
 <?php namespace Sukohi\CustomCast;
 
+use Carbon\Carbon;
+
 trait CustomCastTrait {
 
     // Override
@@ -18,6 +20,17 @@ trait CustomCastTrait {
         if($this->isAlphaBooleanAttribute($key)) {
 
             $value = ($value) ? 'T' : 'F';
+
+        } else if($this->isShortTimeAttribute($key)) {
+
+            if(!empty($value)) {
+
+                $dt = new Carbon($value);
+                $value = $dt->format('H:i');
+
+            }
+
+            return $value;
 
         }
 
@@ -47,6 +60,12 @@ trait CustomCastTrait {
     private function isAlphaBooleanAttribute($key) {
 
         return $this->hasCast($key, 'alpha_boolean');
+
+    }
+
+    private function isShortTimeAttribute($key) {
+
+        return $this->hasCast($key, 'short_time');
 
     }
 

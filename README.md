@@ -43,6 +43,17 @@ This might be useful for JavaScript Object key.
         'activated' => 'alpha_boolean'
     ];
 
+## Short time
+
+* hh::ii:ss => hh:ii
+
+
+    protected $casts = [
+        'meeting_time' => 'short_time'
+    ];
+    
+    // i.g) 01:02:03 => 01:02
+    
 License
 ====
 This package is licensed under the MIT License.
