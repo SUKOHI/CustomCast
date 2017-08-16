@@ -42,6 +42,18 @@ This might be useful for JavaScript Object key.
     protected $casts = [
         'activated' => 'alpha_boolean'
     ];
+    
+## Alphabet ternary
+
+* 1 <=> 'T'
+* 2 <=> 'F'
+* 0 <=> 'U' (unknown)
+
+You need to set `alpha_ternary`.  
+
+    protected $casts = [
+        'status_type_id' => 'alpha_ternary'
+    ];
 
 ## Short time
 

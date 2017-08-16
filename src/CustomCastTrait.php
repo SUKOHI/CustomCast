@@ -21,6 +21,22 @@ trait CustomCastTrait {
 
             $value = ($value) ? 'T' : 'F';
 
+        } else if($this->isAlphaTernaryAttribute($key)) {
+
+            if($value == 1) {
+
+                $value = 'T';
+
+            } else if($value == 2) {
+
+                $value = 'F';
+
+            } else {
+
+                $value = 'U';   // unknown
+
+            }
+
         } else if($this->isShortTimeAttribute($key)) {
 
             if(!empty($value)) {
@@ -52,6 +68,22 @@ trait CustomCastTrait {
 
             $value = (strtoupper($value) === 'T');
 
+        } else if($this->isAlphaTernaryAttribute($key)) {
+
+            if($value == 'T') {
+
+                $value = 1;
+
+            } else if($value == 'F') {
+
+                $value = 2;
+
+            } else {
+
+                $value = 0;
+
+            }
+
         }
 
         parent::setAttribute($key, $value);
@@ -60,6 +92,12 @@ trait CustomCastTrait {
     private function isAlphaBooleanAttribute($key) {
 
         return $this->hasCast($key, 'alpha_boolean');
+
+    }
+
+    private function isAlphaTernaryAttribute($key) {
+
+        return $this->hasCast($key, 'alpha_ternary');
 
     }
 
